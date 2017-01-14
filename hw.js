@@ -21,7 +21,7 @@ module.exports = {
      * and dashes.
      */
     phone: function (input) {
-        let matcher = new RegExp('^\(?([0-9]{3})?\)? ?[0-9]{3}-? ?[0-9]{4}$');
+        let matcher = new RegExp('^[\(]?([0-9]{3})?[\)]? ?[0-9]{3} ?-?[0-9]{4}$');
        return matcher.test(input);
 
     },
@@ -31,7 +31,7 @@ module.exports = {
      * domain name.
      */
     email: function (input) {
-        let matcher = new RegExp('');
+        let matcher = new RegExp('^[a-z_\.]+@[a-z\.]+[com|gov|org]([a-z\.]+)?$');
        return matcher.test(input);
 
     },
@@ -42,6 +42,8 @@ module.exports = {
      * other information.
      */
     address: function (input) {
+        let matcher = new RegExp('^[0-9]+ ?(West|East)? [a-zA-Z]+ (St|Ave|Lane)$');
+       return matcher.test(input);
 
     },
     /**
@@ -49,6 +51,8 @@ module.exports = {
      * can contain numbers or letters. It must start with a letter.
      */
     username: function (input) {
+        let matcher = new RegExp('^[a-z][a-z0-9]{3,15}$');
+       return matcher.test(input);
 
     },
     /**
@@ -57,6 +61,9 @@ module.exports = {
      * may not end with a file name.
      */
     url: function (input) {
+        let matcher = new RegExp('^(https|http)://[a-z]+\.(com|org)([\/\.a-z]+)?$');
+       return matcher.test(input);
+
         
     },
 
@@ -65,6 +72,9 @@ module.exports = {
      * each section. Each section can include from one to three digits.
      */
     ipaddr: function (input) {
+        let matcher = new RegExp('^[0-9]{1,3}[\.][0-9]{1,3}[\.][0-9]{1,3}[\.][0-9]{1,3}$');
+       return matcher.test(input);
+
 
     },
 };
